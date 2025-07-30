@@ -1,6 +1,4 @@
-//
-// Created by Sparsh Prakash on 02/11/23.
-//
+
 
 #ifndef RUBIKS_CUBE_SOLVER_MATH_H
 #define RUBIKS_CUBE_SOLVER_MATH_H

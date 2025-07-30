@@ -1,16 +1,22 @@
-//
-// Created by Sparsh Prakash on 01/11/23.
-//
+
 
 #ifndef RUBIKS_CUBE_SOLVER_NIBBLEARRAY_H
 #define RUBIKS_CUBE_SOLVER_NIBBLEARRAY_H
 
-
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <array>
+#include <string>
+#include <unordered_map>
+#include <queue>
+#include <stack>
+#include <cmath>
+#include <algorithm>
 
 using namespace std;
 
-class NibbleArray {
+class NibbleArray
+{
     size_t size;
     vector<uint8_t> arr;
 
@@ -30,7 +36,6 @@ public:
     void inflate(vector<uint8_t> &dest) const;
 
     void reset(const uint8_t val = 0xFF);
-
 };
 
-#endif //RUBIKS_CUBE_SOLVER_NIBBLEARRAY_H
+#endif // RUBIKS_CUBE_SOLVER_NIBBLEARRAY_H

@@ -1,80 +1,51 @@
-// Include the source files for three different Rubik's Cube implementations
 #include "Prototype/RubiksCube3dArray.cpp"
 #include "Prototype/RubiksCube1dArray.cpp"
 #include "Prototype/RubiksCubeBitboard.cpp"
 
-
-// Bring the entire C++ Standard Library namespace into scope
+#include <iostream>
+#include <vector>
 using namespace std;
 
-// Main function, the entry point of the program
-int main() {
+int main()
+{
+    cout << "=== Testing RubiksCube3dArray ===\n";
+    RubiksCube3dArray cube3d;
+    cube3d.print();
 
+    if (cube3d.isSolved())
+        cout << "Status: SOLVED\n";
+    else
+        cout << "Status: NOT SOLVED\n";
 
-//    // Object Creation and Printing for RubiksCube3dArray
-//    RubiksCube3dArray Objectof3darray;
-//    Objectof3darray.print();
-//
-//    // Object Creation and Printing for RubiksCube1dArray
-//    RubiksCube1dArray Objectof1darray;
-//    Objectof1darray.print();
-//
-//    // Object Creation and Printing for RubiksCubeBitboard
-//    RubiksCubeBitboard ObjectofBitboard;
-//    ObjectofBitboard.print();
-//
-//// Testing for RubiksCube3dArray
-//
-//    if(Objectof3darray.isSolved()) cout << "SOLVED\n";
-//    else cout<< "NOT SOLVED\n";
-//
-//    // Generate random shuffle moves and print them for RubiksCube3dArray
-//    vector<RubiksCube::MOVE> movesToShuffle3dArray = Objectof3darray.randomShuffleCube(2);
-//    for (auto move: movesToShuffle3dArray)
-//    {
-//        cout << Objectof3darray.getMove(move) << " ";
-//    }
-//    cout << "\n";
-//
-//    // Print the cube's state after shuffling and check if it's solved
-//    Objectof3darray.print();
-//    if(Objectof3darray.isSolved()) cout << "SOLVED\n";
-//    else cout<< "NOT SOLVED\n";
-//
-////  (( Testing for RubiksCube1dArray ))
-//
-//    if(Objectof1darray.isSolved()) cout << "SOLVED\n";
-//    else cout<< "NOT SOLVED\n";
-//
-//    // Generate random shuffle moves and print them for RubiksCube1dArray
-//    vector<RubiksCube::MOVE> movesToShuffle1dArray = Objectof1darray.randomShuffleCube(2);
-//    for (auto move: movesToShuffle1dArray)
-//    {
-//        cout << Objectof1darray.getMove(move) << " ";
-//    }
-//    cout << "\n";
-//
-//    // Print the cube's state after shuffling and check if it's solved
-//    Objectof1darray.print();
-//    if(Objectof1darray.isSolved()) cout << "SOLVED\n";
-//    else cout<< "NOT SOLVED\n";
-//
-////  (( Testing for RubiksCubeBitboard ))
-//
-//    if(ObjectofBitboard.isSolved()) cout << "SOLVED\n";
-//    else cout<< "NOT SOLVED\n";
-//
-//    // Generate random shuffle moves and print them for RubiksCubeBitboard
-//    vector<RubiksCube::MOVE> movesToShuffleBitboard = ObjectofBitboard.randomShuffleCube(3);
-//    for (auto move: movesToShuffleBitboard)
-//    {
-//        cout << ObjectofBitboard.getMove(move) << " ";
-//    }
-//    cout << "\n";
-//
-//    // Print the cube's state after shuffling and check if it's solved
-//    ObjectofBitboard.print();
-//    if(ObjectofBitboard.isSolved()) cout << "SOLVED\n";
-//    else cout<< "NOT SOLVED\n";
+    auto moves3d = cube3d.randomShuffleCube(3);
+    cout << "Shuffle Moves (3d): ";
+    for (auto move : moves3d)
+        cout << cube3d.getMove(move) << " ";
+    cout << "\nAfter Shuffling:\n";
+    cube3d.print();
+    cout << (cube3d.isSolved() ? "Status: SOLVED\n" : "Status: NOT SOLVED\n");
 
+    cout << "\n=== Testing RubiksCube1dArray ===\n";
+    RubiksCube1dArray cube1d;
+    cube1d.print();
+    auto moves1d = cube1d.randomShuffleCube(3);
+    cout << "Shuffle Moves (1d): ";
+    for (auto move : moves1d)
+        cout << cube1d.getMove(move) << " ";
+    cout << "\nAfter Shuffling:\n";
+    cube1d.print();
+    cout << (cube1d.isSolved() ? "Status: SOLVED\n" : "Status: NOT SOLVED\n");
+
+    cout << "\n=== Testing RubiksCubeBitboard ===\n";
+    RubiksCubeBitboard cubeBitboard;
+    cubeBitboard.print();
+    auto movesBit = cubeBitboard.randomShuffleCube(3);
+    cout << "Shuffle Moves (bitboard): ";
+    for (auto move : movesBit)
+        cout << cubeBitboard.getMove(move) << " ";
+    cout << "\nAfter Shuffling:\n";
+    cubeBitboard.print();
+    cout << (cubeBitboard.isSolved() ? "Status: SOLVED\n" : "Status: NOT SOLVED\n");
+
+    return 0;
 }

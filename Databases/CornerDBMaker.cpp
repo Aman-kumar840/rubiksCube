@@ -1,7 +1,3 @@
-//
-// Created by Sparsh Prakash on 04/11/23.
-//
-
 
 #include "CornerDBMaker.h"
 

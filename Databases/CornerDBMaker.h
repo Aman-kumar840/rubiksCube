@@ -1,6 +1,3 @@
-//
-// Created by Sparsh Prakash on 04/11/23.
-//
 
 
 #ifndef RUBIKS_CUBE_SOLVER_CORNERDBMAKER_H

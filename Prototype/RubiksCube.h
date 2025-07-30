@@ -4,19 +4,24 @@
  *
  * This header file defines the RubiksCube class, which represents a Rubik's Cube puzzle. It provides
  * various methods for manipulating and solving the cube, as well as accessing its state.
- *
- * @author Sparsh Prakash
- * @date 17/10/23
  */
 
 #ifndef RUBIKS_CUBE_SOLVER_RUBIKSCUBE_H
 #define RUBIKS_CUBE_SOLVER_RUBIKSCUBE_H
-
-#include "bits/stdc++.h"
+#include <iostream>
+#include <vector>
+#include <array>
+#include <string>
+#include <unordered_map>
+#include <queue>
+#include <stack>
+#include <cmath>
+#include <algorithm>
 
 using namespace std;
 
-class RubiksCube {
+class RubiksCube
+{
 public:
     // Enums for cube faces, colors, and moves.
 
@@ -24,7 +29,8 @@ public:
      * @enum FACE
      * Represents the faces of the Rubik's Cube.
      */
-    enum class FACE{
+    enum class FACE
+    {
         UP,
         LEFT,
         FRONT,
@@ -37,7 +43,8 @@ public:
      * @enum COLOR
      * Represents the colors of the Rubik's Cube.
      */
-    enum class COLOR{
+    enum class COLOR
+    {
         WHITE,
         GREEN,
         RED,
@@ -46,22 +53,32 @@ public:
         YELLOW
     };
 
-
     /**
      * @enum MOVE
      * Represents the different moves that can be applied to the Rubik's Cube.
      */
 
-
-    enum class MOVE{
-        U, UPRIME, U2,
-        L, LPRIME, L2,
-        F, FPRIME, F2,
-        R, RPRIME, R2,
-        B, BPRIME, B2,
-        D, DPRIME, D2,
+    enum class MOVE
+    {
+        U,
+        UPRIME,
+        U2,
+        L,
+        LPRIME,
+        L2,
+        F,
+        FPRIME,
+        F2,
+        R,
+        RPRIME,
+        R2,
+        B,
+        BPRIME,
+        B2,
+        D,
+        DPRIME,
+        D2,
     };
-
 
     /**
      * Get the color of a specific position on the cube.
@@ -72,10 +89,9 @@ public:
      * @return The color of the specified position.
      */
 
+    virtual COLOR getColor(FACE face, unsigned row, unsigned col) const = 0;
 
-    virtual COLOR getColor(FACE face, unsigned row, unsigned col) const=0;
-
-     /**
+    /**
      * Get the character representation of a cube color.
      *
      * @param color The cube color.
@@ -90,7 +106,7 @@ public:
      * @return True if the cube is solved, false otherwise.
      */
 
-    virtual bool isSolved() const=0;
+    virtual bool isSolved() const = 0;
 
     // Methods for cube manipulation and movements.
 
@@ -142,8 +158,6 @@ public:
 
     virtual RubiksCube &b2() = 0;
 
-
-
     /**
      * Get the color string of a corner at a specific index.
      *
@@ -170,7 +184,6 @@ public:
      */
 
     uint8_t getCornerOrientation(uint8_t ex) const;
-
 };
 
-#endif //RUBIKS_CUBE_SOLVER_RUBIKSCUBE_H
+#endif // RUBIKS_CUBE_SOLVER_RUBIKSCUBE_H

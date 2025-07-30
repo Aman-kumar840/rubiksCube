@@ -1,7 +1,3 @@
-//
-// Created by Sparsh Prakash on 03/11/23.
-//
-
 
 #include "CornerPatternDatabase.h"
 
